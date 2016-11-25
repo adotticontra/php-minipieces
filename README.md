@@ -17,9 +17,9 @@ Please read the `manual.txt` file included in the `doc` directory for
 more information and usage examples.
 
 ##License
-Minipieces is copyright (C) 2016 by Alessandro Dotti Contra
-<alessandro@hyboria.org> and is released under the terms of the LGPL v3
-license.
+
+Minipieces is copyright (C) 2016 by Alessandro Dotti Contra and is released
+under the terms of the LGPL v3 license.
 
 ##Credits
 I'd like to thank [Brian E. Lozier](http://massassi.com/) for [this
