@@ -1,0 +1,27 @@
+HOW TO USE minipieces
+---------------------
+
+First thing you have to do to use minipieces is to put the following
+line whenever you plan to use it:
+
+require_once("/path/to/lib/minipieces.php");
+
+CREATE A BASIC TEMPLATE
+-----------------------
+
+First of all you have to create your template. minipieces uses PHP as the
+templating language, so a simple template would look like this:
+
+---
+Hello <?=$name?>, this is a simple template!
+---
+
+Suppose it is saved in the simple.tpl file.
+
+Now, in your code, you need to create a new minipiece object:
+
+$template = new minipiece('/path/to/template/directory/simple.tpl');
+
+This will give you a minipiece object binded to your template file. An
+expection is thrown if there are problems accessing the template file
+(non existent file, wrong permissions etc.).
