@@ -2,15 +2,29 @@
 require_once('../lib/minipieces.php');
 
 class minipieceTest extends PHPUnit_Framework_TestCase {
+	
+	protected $template;
 
 	protected function setUp() {
 		$file = fopen('base.tpl', 'w');
 		fwrite($file, 'Hello <?=$name?>, this is a simple template!');
 		fclose($file);
+		$this->template = new minipiece('base.tpl');
 	}
 
 	protected function tearDown() {
 		unlink('base.tpl');
+	}
+
+	public function testCreation() {
+		$this->assertTrue(is_object($this->template));
+	}
+
+	/* @depends testCreation */
+	public function testSetVariable() {
+		$this->template->set('name','Alex');
+		$this->assertFalse($this->template->is_set('surname'));
+		$this->assertTrue($this->template->is_set('name'));
 	}
 
 	public function testFailedCreation() {
@@ -21,17 +35,5 @@ class minipieceTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($message, "Template false.tpl is unavailable.");
 	}
 
-	public function testCreation() {
-		$this->template = new minipiece('base.tpl');
-		$this->assertTrue(is_object($this->template));
-	}
-
-	/* @depends testCreation */
-	public function testSetVariable() {
-		$this->template = new minipiece('base.tpl');
-		$this->template->set('name','Alex');
-		$this->assertFalse($this->template->is_set('surname'));
-		$this->assertTrue($this->template->is_set('name'));
-	}
 }
 ?>
