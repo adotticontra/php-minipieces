@@ -11,7 +11,8 @@
 
 class minipiece {
 	
-	private $file = FALSE;	// Handle for template file
+	private $file = FALSE;		// Handle for template file
+	private $vars = array();	// Hash with all template parameters
 
 	public function __construct($f) {
 		/*
@@ -39,6 +40,37 @@ class minipiece {
 		 */
 
 		fclose($this->file);
+	}
+
+	public function set($var,$value) {
+		/*
+		 * Set a single variable.
+		 *
+		 * PARAMETERS
+		 * - $var: the variable to set;
+		 * - $value: its value.
+		 *
+		 * RETURNS
+		 * Nothing meaningful.
+		 *
+		 * Previous value of $var is overwritten.
+		 */
+
+		$this->vars[$var] = $value;
+	}
+
+	public function is_set($var) {
+		/*
+		 * Test if the requested variable is set or no.
+		 *
+		 * PARAMETERS
+		 * - $var: the variable to test.
+		 *
+		 * RETURNS
+		 * True if $var is set, otherwise False.
+		 */
+
+		return isset($this->vars[$var]);
 	}
 }
 

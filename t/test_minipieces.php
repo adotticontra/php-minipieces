@@ -26,5 +26,12 @@ class minipieceTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue(is_object($this->template));
 	}
 
+	/* @depends testCreation */
+	public function testSetVariable() {
+		$this->template = new minipiece('base.tpl');
+		$this->template->set('name','Alex');
+		$this->assertFalse($this->template->is_set('surname'));
+		$this->assertTrue($this->template->is_set('name'));
+	}
 }
 ?>

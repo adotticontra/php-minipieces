@@ -25,3 +25,16 @@ $template = new minipiece('/path/to/template/directory/simple.tpl');
 This will give you a minipiece object binded to your template file. An
 expection is thrown if there are problems accessing the template file
 (non existent file, wrong permissions etc.).
+
+Now that your minipiece is ready for use, you can start filling the
+different variables ('name' in this example):
+
+$template->set('name','Alex');
+
+This will set the 'name' variable to the string 'Alex'.
+
+So, if you now check if the 'name' varible is set:
+
+$template->is_set('name');
+
+you will receive a positive answer (True).
