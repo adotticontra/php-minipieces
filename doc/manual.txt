@@ -38,3 +38,16 @@ So, if you now check if the 'name' varible is set:
 $template->is_set('name');
 
 you will receive a positive answer (True).
+
+Last thing to do is to render your template:
+
+$template->render();
+
+and you will get
+
+---
+Hello Alex, this is a simple template!
+---
+
+as output.
+

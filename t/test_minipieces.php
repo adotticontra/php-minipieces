@@ -27,6 +27,7 @@ class minipieceTest extends PHPUnit_Framework_TestCase {
 		$this->assertTrue($this->template->is_set('name'));
 	}
 
+	/* @depends testCreation */
 	public function testFailedCreation() {
 		$message = FALSE;
 		try {
@@ -35,5 +36,10 @@ class minipieceTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($message, "Template false.tpl is unavailable.");
 	}
 
+	/* @depends testSetVariable */
+	public function testRendering() {
+		$this->template->set('name','Alex');
+		$this->assertEquals($this->template->render(), "Hello Alex, this is a simple template!");
+	}
 }
 ?>

@@ -24,22 +24,15 @@ class minipiece {
 		 * RETURNS
 		 * An object of class minipiece.
 		 *
-		 * Throws an exception if the template file is not available
+		 * Throws an exception if the template file is not available or
+		 * is not readable.
 		 */
 		
-		try {
-			$this->file = fopen($f, 'r');
-		} catch (Exception $e) {
+		if(is_file($f) && is_readable($f)) {
+			$this->file = $f;
+		} else {
 			throw new Exception("Template $f is unavailable.");
 		}
-	}
-
-	public function __destruct() {
-		/*
-		 * Class destructor.
-		 */
-
-		fclose($this->file);
 	}
 
 	public function set($var,$value) {
@@ -71,6 +64,19 @@ class minipiece {
 		 */
 
 		return isset($this->vars[$var]);
+	}
+
+	public function render() {
+		/*
+		 * Render the template.
+		 */
+
+		extract($this->vars);
+		ob_start();
+		include($this->file);
+		$output = ob_get_contents();
+		ob_end_clean();
+		return $output;
 	}
 }
 
