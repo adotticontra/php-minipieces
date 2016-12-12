@@ -8,7 +8,6 @@ require_once("/path/to/lib/minipieces.php");
 
 CREATE A BASIC TEMPLATE
 -----------------------
-
 First of all you have to create your template. minipieces uses PHP as the
 templating language, so a simple template would look like this:
 
@@ -51,3 +50,50 @@ Hello Alex, this is a simple template!
 
 as output.
 
+CREATE NESTED TEMPLATES
+-----------------------
+After having played a little with a basic template, let's move a step
+further and learn how we can nest templates.
+
+We might have a template called statement.tpl:
+
+---
+I, <?=$name?>, declare I love chinese food.
+---
+
+and suppose we want name to be a little more complex than a simple first
+name.
+
+We can create a second template (let's call it name.tpl):
+
+---
+<?=$firstname?> <?=$surname?>
+---
+
+and include it in our statement.tpl template. But how?
+
+First we create a minipiece object for the statement.tpl template:
+
+$s = new minipiece('/path/to/templates/directory/statement.tpl');
+
+Now, instead of setting the 'name' variable of the $s object directly,
+we create a new minipiece object binded to name.tpl:
+
+$n = new minipiece('/path/to/templates/directory/name.tpl');
+
+We set all $n variables we need to:
+
+$n->set('firstname', 'John');
+$n->set('surname', 'Doe');
+
+and then assign this object to $s 'name' variable:
+
+$s->set('name', $n);
+
+Rendering our statement will give us:
+
+---
+I, John Doe, declare I love chinese food.
+---
+
+as a result.

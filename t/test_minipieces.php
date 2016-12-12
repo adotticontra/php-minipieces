@@ -6,9 +6,9 @@ class minipieceTest extends PHPUnit_Framework_TestCase {
 	protected $template;
 
 	protected function setUp() {
-		$file = fopen('base.tpl', 'w');
-		fwrite($file, 'Hello <?=$name?>, this is a simple template!');
-		fclose($file);
+		$basefile = fopen('base.tpl', 'w');
+		fwrite($basefile, 'Hello <?=$name?>, this is a simple template!');
+		fclose($basefile);
 		$this->template = new minipiece('base.tpl');
 	}
 
@@ -40,6 +40,23 @@ class minipieceTest extends PHPUnit_Framework_TestCase {
 	public function testRendering() {
 		$this->template->set('name','Alex');
 		$this->assertEquals($this->template->render(), "Hello Alex, this is a simple template!");
+	}
+
+	/* @depens testCreation
+	 * @depends testSetVariable
+	 * @depends testRendering
+	 */
+
+	public function testNestedTemplate() {
+		$blockfile = fopen('block.tpl', 'w');
+		fwrite($blockfile, '<?=$firstname?> <?=$surname?>');
+		fclose($blockfile);
+		$block = new minipiece('block.tpl');
+		$block->set('firstname', 'John');
+		$block->set('surname', 'Doe');
+		$this->template->set('name', $block);
+		$this->assertEquals($this->template->render(), "Hello John Doe, this is a simple template!");
+		unlink('block.tpl');
 	}
 }
 ?>

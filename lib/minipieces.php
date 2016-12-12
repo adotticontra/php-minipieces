@@ -47,9 +47,15 @@ class minipiece {
 		 * Nothing meaningful.
 		 *
 		 * Previous value of $var is overwritten.
+		 * If $value is a minipiece object, its rendered version is assigned
+		 * to $var.
 		 */
 
-		$this->vars[$var] = $value;
+		if($value instanceof minipiece) {
+			$this->vars[$var] = $value->render();
+		} else {
+			$this->vars[$var] = $value;
+		}
 	}
 
 	public function is_set($var) {
