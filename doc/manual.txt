@@ -97,3 +97,10 @@ I, John Doe, declare I love chinese food.
 ---
 
 as a result.
+
+MORE COMPLEX TEMPLATES
+----------------------
+Since templates are basically written using embedded PHP, complex
+constructs, including loops and conditional statements, are supported
+out of the box. Complex data structures can be passed between templates
+as well. 
