@@ -13,8 +13,6 @@
 			echo "<link href=\"css/$c\" media=\"all\" type=\"text/css\" rel=\"stylesheet\" />\n";
 		}
 	?>
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/scripta.js"></script>
 	<?php
 		foreach($head_extra_scripts as $s) {
 			echo "<script type=\"text/javascript\" src=\"js/$s\"></script>\n";
