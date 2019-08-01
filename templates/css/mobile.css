@@ -1,0 +1,21 @@
+/*
+ * Mobile layout stylesheet.
+ */
+
+/*  #Mobile (up to 767px)
+================================================== */
+
+    @media only screen and (max-width: 767px) {
+    }
+
+/* #Mobile (between 480px and 767px)
+================================================== */
+
+    @media only screen and (min-width: 480px) and (max-width: 767px) {
+    }
+
+/* #Mobile (smaller than 480px)
+================================================== */
+
+    @media only screen and (max-width: 479px) {
+    }

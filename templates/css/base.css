@@ -1,0 +1,99 @@
+/* Default font */
+html {
+	font-family: sans-serif;
+}
+
+/* Body margin */
+body {
+	margin: 0;
+}
+
+/* HTML 5 block elements */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+/* HTML 5 inline block elements */
+audio,
+canvas,
+progress,
+video {
+	display: inline-block;
+	vertical-align: baseline;
+}
+
+/* Links */
+a {
+	color: blue;
+	background-color: white;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text elements */
+b,
+strong {
+	font-weight: bold;
+}
+
+h1 {
+	font-size: 2em;
+	margin: 0.5em 0;
+}
+
+small {
+	font-size: 80%;
+}
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sup {
+	top: -0.5em;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+code,
+pre {
+	font-family: monospace;
+	font-size: 1em;
+	overflow: auto;
+}
+
+img {
+	border: 0;
+}
+
+/* Tables */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+td,
+th {
+	padding: 0;
+}
