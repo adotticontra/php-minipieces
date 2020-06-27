@@ -2,21 +2,22 @@
  * ================================================== */
 
 .container                                  { position: relative; width:100%; max-width: 1920px; margin: 0 auto; padding: 0; }
-.container .column                          { float: left; display: inline }
+.container .column,
+.container .colums							{ float: left; display: inline }
 
 /* Base Grid */
 .container .one.column                      { width: 8.333333333%; }
-.container .two.column                      { width: 16.66666667%; }
-.container .three.column                    { width: 25%; }
-.container .four.column                     { width: 33.33333333%; }
-.container .five.column                     { width: 41.66666667%; }
-.container .six.column                      { width: 50%; }
-.container .seven.column                    { width: 58.33333333%; }
-.container .eight.column                    { width: 66.66666667%; }
-.container .nine.column                     { width: 75%; }
-.container .ten.column                      { width: 83.33333333%; }
-.container .eleven.column                   { width: 91.66666667%; }
-.container .twelve.column                   { width: 100%; }
+.container .two.columns                     { width: 16.66666667%; }
+.container .three.columns                   { width: 25%; }
+.container .four.columns                    { width: 33.33333333%; }
+.container .five.columns                    { width: 41.66666667%; }
+.container .six.columns                     { width: 50%; }
+.container .seven.columns                   { width: 58.33333333%; }
+.container .eight.columns                   { width: 66.66666667%; }
+.container .nine.columns                    { width: 75%; }
+.container .ten.columns                     { width: 83.33333333%; }
+.container .eleven.columns                  { width: 91.66666667%; }
+.container .twelve.columns                  { width: 100%; }
 
 .container .one-quarter.column              { width: 25%; }
 .container .one-third.column                { width: 33.33333333%; }
@@ -44,7 +45,6 @@
 
     @media only screen and (max-width: 767px) {
         .container .one.column,
-        .container .one.columns,
         .container .two.columns,
         .container .three.columns,
         .container .four.columns,
@@ -56,10 +56,9 @@
         .container .ten.columns,
         .container .eleven.columns,
         .container .twelve.columns,
-        .container .thirteen.columns,
-        .container .fourteen.columns,
-        .container .fifteen.columns,
-        .container .sixteen.columns,
+		.container .one-quarter.column,
         .container .one-third.column,
-        .container .two-thirds.column  { width: 100%; }
+		.container .half.column,
+        .container .two-thirds.column,
+		.container .three-quarters.column	{ width: 100%; }
     }
